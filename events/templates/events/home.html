@@ -1,0 +1,39 @@
+{% extends "./base.html" %}
+<!--{% load static %}-->
+{% block content %}
+
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <img src="{% static 'UAH-svg.png'%}" width=300 height=300 class="img-fluid mb-2"/>
+            <p class="lead text-muted">Hey there! I'm excited to see you here!
+                You can write me right now!.</p>
+            <p>
+                <a href="mailto:0638175303@ukr.net" class="btn btn-primary my-2">Mail me</a>
+            </p>
+
+        </div>
+    </div>
+</section>
+
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for event in events.all %}
+
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img class="card-img-top" src="{{event.event_image.url}}"/>
+
+                    <div class="card-body">
+                        <p class="card-text">{{ event.event_text}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
